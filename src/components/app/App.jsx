@@ -26,7 +26,7 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter basename="/goit-react-hw-08-phonebook">
+    <BrowserRouter basename="/Phonebook">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
