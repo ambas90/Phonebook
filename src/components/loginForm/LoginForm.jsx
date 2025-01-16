@@ -8,7 +8,8 @@ import {
   LoginFormInput,
   LoginButton,
 } from './LoginFormStyles';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
+import { NavLink } from 'react-router-dom';
 const LoginForm = () => {
   const dispatch = useDispatch();
 
@@ -29,17 +30,25 @@ const LoginForm = () => {
         <title>Login</title>
       </Helmet>
       <LoginWrapper>
+        <h2>Sign In</h2>
         <LoginFormUi onSubmit={handleSubmit} autoComplete="off">
           <LoginFormLabel>
-            Email
-            <LoginFormInput type="email" name="email" />
+            Email:
+            <LoginFormInput placeholder="Email" type="email" name="email" />
           </LoginFormLabel>
           <LoginFormLabel>
-            Password
-            <LoginFormInput type="password" name="password" />
+            Password:
+            <LoginFormInput
+              placeholder="Password"
+              type="password"
+              name="password"
+            />
           </LoginFormLabel>
           <LoginButton type="submit">Login</LoginButton>
         </LoginFormUi>
+        <p>
+          Already have an account? <NavLink to="/login">Sign In</NavLink>
+        </p>
       </LoginWrapper>
     </LoginContainer>
   );

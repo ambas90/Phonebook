@@ -7,7 +7,6 @@ import { refreshUser } from '../../redux/auth/operations';
 import RegisterForm from '../registerForm/RegisterForm';
 import LoginForm from 'components/loginForm/LoginForm';
 import Layout from 'components/layout/Layout';
-import Home from 'components/home/Home';
 import Phonebook from 'components/phonebook/Phonebook';
 import PrivateRoute from 'components/privateRoute/PrivateRoute';
 import ProtectedRoute from 'components/protectedRoute/ProtectedRoute';
@@ -29,7 +28,12 @@ export default function App() {
     <BrowserRouter basename="/Phonebook">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route
+            index
+            element={
+              <ProtectedRoute Component={<Phonebook />} redirecTo="/login" />
+            }
+          />
           <Route
             path="register"
             element={
@@ -47,7 +51,9 @@ export default function App() {
           />
           <Route
             path="contacts"
-            element={<ProtectedRoute Component={<Phonebook />} redirecTo="/" />}
+            element={
+              <ProtectedRoute Component={<Phonebook />} redirecTo="/login" />
+            }
           />
         </Route>
         <Route path="*" element={<NotFound />} />

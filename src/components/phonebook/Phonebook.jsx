@@ -13,7 +13,7 @@ import {
   selectFilter,
   selectFilteredContacts,
 } from '../../redux/selectors';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import useAuth from 'hooks/useAuth';
 
 export default function Phonebook() {
