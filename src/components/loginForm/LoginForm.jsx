@@ -46,9 +46,6 @@ const LoginForm = () => {
           </LoginFormLabel>
           <LoginButton type="submit">Login</LoginButton>
         </LoginFormUi>
-        <p>
-          Already have an account? <NavLink to="/login">Sign In</NavLink>
-        </p>
       </LoginWrapper>
     </LoginContainer>
   );
